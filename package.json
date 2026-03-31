@@ -1,0 +1,21 @@
+{
+  "name": "decision-makerbackend",
+  "version": "1.0.0",
+  "description": "this is the backend",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "zest"
+  },
+  "author": "abhishek thakur",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "env": "^0.0.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14"
+  }
+}
