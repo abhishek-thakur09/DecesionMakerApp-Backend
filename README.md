@@ -1,2 +1,2 @@
 # DecesionMakerApp-Backend
-this project is an assignment
+# very first thing i have done in my project is setup the server and database.
