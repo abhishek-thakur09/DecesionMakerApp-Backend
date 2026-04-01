@@ -15,6 +15,7 @@ app.use(
   cors({
     origin: "https://decisionmakerfrontend.onrender.com", 
     credentials: true,
+    
   })
 );
 app.use(express.json());
