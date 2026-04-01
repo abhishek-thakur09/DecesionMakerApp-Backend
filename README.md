@@ -7,23 +7,7 @@ View all active/expired polls
 See poll statistics
 Can't vote twice (we track using IP address)
 
-Folder Structure
-
-src/
-├── config/
-│   └── database.js          # MongoDB connection setup
-├── models/
-│   ├── poll.model.js        # Poll schema (question, options, expiry)
-│   ├── option.model.js      # Options for each poll
-│   └── vote.model.js        # Vote records (with unique constraint)
-└── routes/
-    └── Polls.route.js       # All API endpoints
-
-index.js                      # Server entry point
-package.json                  # Dependencies
-
-Prerequisites:
-
+#Prerequisites:
 Node.js (v14 or higher)
 MongoDB (Atlas or local)
 Postman or similar tool for testing APIs
