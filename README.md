@@ -1,4 +1,4 @@
-#Decision Maker Backend 
+# Decision Maker Backend
 A polling/voting backend API where users can create polls, vote on options, and see real-time statistics! Built with Node.js, Express, and MongoDB.
 
 Create new polls with multiple options (2-4 options)
