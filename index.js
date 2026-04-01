@@ -21,6 +21,14 @@ app.use(express.json());
 
 const PollRouter = require("./src/routes/Polls.route");
 
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Welcome!!",
+    status: "Active",
+    time: new Date().toLocaleString('en-IN')
+  });
+});
 app.use("/api", PollRouter);
 
 
