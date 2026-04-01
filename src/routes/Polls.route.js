@@ -46,25 +46,33 @@ PollRouter.post("/polls", async (req, res) => {
 
 PollRouter.get("/allPolls", async (req, res) => {
   try {
-    const AllPolls = await Poll.find().populate("options");
+    const { status } = req.query;
 
-    // itterate over the polls and check whether the poll is expired or have some time?
+    // Update all polls that ARE past their time but NOT marked expired 
+    await Poll.updateMany(
+      { 
+        expiryTime: { $lt: new Date() }, // "Less Than" ref to docs 
+        status: { $ne: "expired" }       // "Not Equal" ref to docs
+      },
+      { $set: { status: "expired" } }
+    );
 
-    for (let i = 0; i < AllPolls.length; i++) {
-      let poll = AllPolls[i];
-
-      if (poll.expiryTime < Date.now() && poll.status !== "expired") {
-        poll.status = "expired";
-        await poll.save();
-      }
+    let filterQuery = {};
+    if (status && status !== "all") {
+      filterQuery.status = status;
     }
 
+    const AllPolls = await Poll.find(filterQuery)
+      .populate("options")
+      .sort({ createdAt: -1 }); //sort according to creation
+
     res.send(AllPolls);
+    
   } catch (err) {
-    res.status(500).send({ message: "server failed" });
+    console.error(err);
+    res.status(500).send({ message: "Server failed to fetch polls" });
   }
 });
-
 // post the vote
 PollRouter.post("/vote", async (req, res) => {
   try {

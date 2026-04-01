@@ -1,12 +1,22 @@
 const express = require('express');
 require("dotenv").config();
-const connectdb = require("./src/config/database")
+const connectdb = require("./src/config/database");
+const cors = require("cors");
 const app = express();
 const http = require("http");
 
 
+
 // this means i am creating server on the top of express app
 const server = http.createServer(app);
+
+// set up cors
+app.use(
+  cors({
+    origin: "http://localhost:5173", 
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const PollRouter = require("./src/routes/Polls.route");
