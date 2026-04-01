@@ -13,7 +13,7 @@ const server = http.createServer(app);
 // set up cors
 app.use(
   cors({
-    origin: "http://localhost:5173", 
+    origin: "https://dsa-hustler-frontend.onrender.com", 
     credentials: true,
   })
 );
