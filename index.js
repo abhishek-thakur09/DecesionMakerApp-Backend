@@ -7,6 +7,11 @@ const http = require("http");
 
 // this means i am creating server on the top of express app
 const server = http.createServer(app);
+app.use(express.json());
+
+const PollRouter = require("./src/routes/Polls.route");
+
+app.use("/api", PollRouter);
 
 
 
