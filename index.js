@@ -3,6 +3,7 @@ require("dotenv").config();
 const connectdb = require("./src/config/database");
 const cors = require("cors");
 const app = express();
+app.set('trust proxy', true);
 const http = require("http");
 
 
@@ -15,7 +16,7 @@ app.use(
   cors({
     origin: "https://decisionmakerfrontend.onrender.com", 
     credentials: true,
-    
+
   })
 );
 app.use(express.json());
